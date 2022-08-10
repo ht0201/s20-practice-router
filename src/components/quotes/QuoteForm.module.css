@@ -40,10 +40,24 @@
   outline-color: teal;
 }
 
+.error-text {
+  color: red;
+}
+
 .actions {
   text-align: right;
 }
 
-.actions button {
+.actions button
+{
   font-size: 1.25rem;
 }
+
+.actions button:disabled {
+
+  background-color: #c1d1d1;
+  cursor: not-allowed;
+}
+
+
+
