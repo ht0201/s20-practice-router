@@ -2,11 +2,7 @@ import React, { Fragment } from 'react';
 import { Route, useParams } from 'react-router-dom';
 import Comments from '../components/comments/Comments';
 import HighlightedQuote from '../components/quotes/HighlightedQuote';
-
-const DUMMY_QUOTES = [
-  { id: 1, author: 'Alex', text: 'Learn' },
-  { id: 2, author: 'Javan', text: 'Play' },
-];
+import { DUMMY_QUOTES } from '../constant/constant';
 
 const QuoteDetails = () => {
   const { quoteId } = useParams();
