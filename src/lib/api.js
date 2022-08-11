@@ -34,3 +34,18 @@ export const addQuote = async (quoteData) => {
 
   return null;
 };
+
+export const getSingleQuote = async (quoteId) => {
+  const res = await fetch(`${FIREBASE_DOMAIN}/quotes/${quoteId}.json`);
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.message || 'Add quote failed');
+  }
+
+  const loadedQuote = {
+    id: quoteId,
+    ...data,
+  };
+
+  return loadedQuote;
+};

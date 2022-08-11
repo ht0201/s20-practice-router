@@ -44,7 +44,7 @@ const QuoteForm = (props) => {
     }
 
     props.onAddQuote({
-      id: Math.floor(Math.random() * 10000),
+      // id: Math.floor(Math.random() * 10000),
       author: enteredAuthor,
       text: enteredText,
     });
