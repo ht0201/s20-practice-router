@@ -5,7 +5,6 @@ import { DUMMY_QUOTES } from '../constant/constant';
 const AllQuotes = () => {
   return (
     <div>
-      <h2>AllQuotes</h2>
       <QuoteList quotes={DUMMY_QUOTES} />
     </div>
   );
