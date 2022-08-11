@@ -1,10 +1,10 @@
-import { Fragment, useRef, useState } from "react";
-import { Prompt } from "react-router-dom";
-import useInput from "../../hooks/useInput";
+import { Fragment, useRef, useState } from 'react';
+import { Prompt } from 'react-router-dom';
+import useInput from '../../hooks/useInput';
 
-import Card from "../UI/Card";
-import LoadingSpinner from "../UI/LoadingSpinner";
-import classes from "./QuoteForm.module.css";
+import Card from '../UI/Card';
+import LoadingSpinner from '../UI/LoadingSpinner';
+import classes from './QuoteForm.module.css';
 
 const isNotEmpty = (value) => value.trim().length !== 0;
 
@@ -43,7 +43,11 @@ const QuoteForm = (props) => {
       return;
     }
 
-    props.onAddQuote({ author: enteredAuthor, text: enteredText });
+    props.onAddQuote({
+      id: Math.floor(Math.random() * 10000),
+      author: enteredAuthor,
+      text: enteredText,
+    });
   }
 
   const focusFormHandler = () => {
@@ -66,7 +70,7 @@ const QuoteForm = (props) => {
     <Fragment>
       <Prompt
         when={isEntering}
-        message="Are you want to leave site ? All you entered will be lost ?"
+        message='Are you want to leave site ? All you entered will be lost ?'
       />
       <Card>
         <form
@@ -81,38 +85,38 @@ const QuoteForm = (props) => {
           )}
 
           <div className={authorClasses}>
-            <label htmlFor="author">Author</label>
+            <label htmlFor='author'>Author</label>
             <input
-              type="text"
-              id="author"
+              type='text'
+              id='author'
               ref={authorInputRef}
               value={enteredAuthor}
               onChange={authorInputChangeHandler}
               onBlur={authorInputBlurHandler}
             />
             {authorInputIsInvalid && (
-              <p className={classes["error-text"]}>Enter author is valid !</p>
+              <p className={classes['error-text']}>Enter author is valid !</p>
             )}
           </div>
           <div className={textClasses}>
-            <label htmlFor="text">Text</label>
+            <label htmlFor='text'>Text</label>
             <textarea
-              id="text"
-              rows="5"
+              id='text'
+              rows='5'
               ref={textInputRef}
               value={enteredText}
               onChange={textInputChangeHandler}
               onBlur={textInputBlurHandler}
             ></textarea>
             {textInputIsInvalid && (
-              <p className={classes["error-text"]}>Enter text is valid !</p>
+              <p className={classes['error-text']}>Enter text is valid !</p>
             )}
           </div>
           <div className={classes.actions}>
             <button
               disabled={!formIsValid}
               onClick={addFinishHandler}
-              className="btn"
+              className='btn'
             >
               Add Quote
             </button>
